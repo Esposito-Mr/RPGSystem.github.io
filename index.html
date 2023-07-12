@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Character Sheet Generator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Character Sheet Generator</h1>
+
+<form id="character-sheet-form">
+  <fieldset>
+    <legend>Character Information</legend>
+    <label for="character-name">Character Name:</label>
+    <input type="text" id="character-name" required>
+    <label for="genetic-identity">Genetic Identity:</label>
+    <input type="text" id="genetic-identity" required>
+    <label for="class">Class:</label>
+    <select id="class">
+      <option value="detective">Escolha uma CLasse</option>
+      <option value="detective">Detective</option>
+      <option value="engineer">Engineer</option>
+      <option value="physician">Physician</option>
+      <option value="scientist">Scientist</option>
+      <option value="soldier">Soldier</option>
+      <option value="priest">Priest</option>
+    </select>
+    <label for="advancement-points">Advancement Points:</label>
+    <input type="number" id="advancement-points">
+  </fieldset>
+
+  <fieldset>
+    <legend>Attributes</legend>
+    <div class="ability-scores-container">
+      <div class="ability-score">
+        <label for="intelligence-score">Intelligence</label>
+        <input type="number" id="intelligence-score" name="intelligence-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="intelligence-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="cool-score">Cool</label>
+        <input type="number" id="cool-score" name="cool-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="cool-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="will-score">Will</label>
+        <input type="number" id="will-score" name="will-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="will-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="strength-score">Strength</label>
+        <input type="number" id="strength-score" name="strength-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="strength-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="constitution-score">Constitution</label>
+        <input type="number" id="constitution-score" name="constitution-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="constitution-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="reflexes-score">Reflexes</label>
+        <input type="number" id="reflexes-score" name="reflexes-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="reflexes-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="dexterity-score">Dexterity</label>
+        <input type="number" id="dexterity-score" name="dexterity-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="dexterity-modifier"></div>
+      </div>
+      <div class="ability-score">
+        <label for="technique-score">Technique</label>
+        <input type="number" id="technique-score" name="technique-score" min="1" max="20" value="10">
+        <div class="ability-modifier" id="technique-modifier"></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Skills</legend>
+    <div class="skill">
+      <label for="investigate-skill">Investigate</label>
+      <input type="number" id="investigate-skill" name="investigate-skill" readonly>
+    </div>
+    <div class="skill">
+      <label for="police-rep-skill">Police Rep</label>
+      <input type="number" id="police-rep-skill" name="police-rep-skill" readonly>
+    </div>
+
+    <br>
+
+    <div class="skills-section">
+      <fieldset>
+        <legend>Skills</legend>
+        <div class="skill-column">
+          <div class="skill-row">
+            <div class="skill-name">Listen (Will)</div>
+            <div class="skill-value" id="listen-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Perception (Will)</div>
+            <div class="skill-value" id="perception-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Knowledge gather (Cool)</div>
+            <div class="skill-value" id="knowledge-gather-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Language (Intelligence)</div>
+            <div class="skill-value" id="language-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Medicine (Intelligence)</div>
+            <div class="skill-value" id="medicine-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Insight (Will)</div>
+            <div class="skill-value" id="insight-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Mental Fortitude (Will)</div>
+            <div class="skill-value" id="mental-fortitude-value"></div>
+          </div>
+        </div>
+        <div class="skill-column">
+          <div class="skill-row">
+            <div class="skill-name">Drive (Strength)</div>
+            <div class="skill-value" id="drive-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Profession (Technique)</div>
+            <div class="skill-value" id="profession-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Fortitude (Constitution)</div>
+            <div class="skill-value" id="fortitude-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Stealth (Reflexes)</div>
+            <div class="skill-value" id="stealth-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Brawl (Strength)</div>
+            <div class="skill-value" id="brawl-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Forgery (Dexterity)</div>
+            <div class="skill-value" id="forgery-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Computers (Technique)</div>
+            <div class="skill-value" id="computers-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Firearms (Reflexes)</div>
+            <div class="skill-value" id="firearms-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Disable Device (Dexterity)</div>
+            <div class="skill-value" id="disable-device-value"></div>
+          </div>
+        </div>
+        <div class="skill-column">
+          <div class="skill-row">
+            <div class="skill-name">Occult Knowledge (Intelligence)</div>
+            <div class="skill-value" id="occult-knowledge-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Occult Manipulation (Will)</div>
+            <div class="skill-value" id="occult-manipulation-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Concentration (Cool)</div>
+            <div class="skill-value" id="concentration-value"></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Mutate Occult (Intelligence)</div>
+            <div class="skill-value" id="mutate-occult-value"></div>
+          </div>
+        </div>
+      </fieldset>
+
+    </div>
+
+  </fieldset>
+
+  <button type="submit" id="generate-button">Generate Character Sheet</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/pdfmake/build/pdfmake.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
